@@ -2,6 +2,14 @@
 const GOOGLE_TASK_LIST_ID = ''; // Optional: Specify a particular task list ID, or leave empty for default list
 
 /**
+ * TEMPORARY FUNCTION - Delete after use
+ * Replace the token below with your actual token and run this function
+ */
+function setMyToken() {
+  setTodoistToken("your-actual-token-here");
+}
+
+/**
  * Sets the Todoist API token securely in the script properties.
  * Run this function once to set up your token.
  * @param {string} token - Your Todoist API token

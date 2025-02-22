@@ -27,10 +27,22 @@ This Google Apps Script automatically syncs incomplete tasks from Google Tasks t
    - Copy your API token
 
 4. **Configure the Script**
-   - Run the `setTodoistToken` function with your token:
-     ```javascript
-     setTodoistToken('your-todoist-api-token-here');
-     ```
+   - Get your Todoist API token:
+     1. Log in to your Todoist account
+     2. Go to Settings → Integrations
+     3. Copy your API token
+   
+   - Set your token using the Apps Script UI:
+     1. Open the script in your browser (`clasp open`)
+     2. Find the `setMyToken` function at the top of the script
+     3. Replace `"your-actual-token-here"` with your actual Todoist token
+     4. Select `setMyToken` from the function dropdown at the top
+     5. Click the "Run" button (play icon)
+     6. After successful execution:
+        - IMPORTANT: Change the token back to `"your-actual-token-here"` or delete it from the code
+        - You can also delete the entire `setMyToken` function if you wish
+        - Your token is now securely stored and you don't need the function anymore
+   
    - Optionally, specify a `GOOGLE_TASK_LIST_ID` if you want to sync from a specific task list
    - Your token is now securely stored in the Script Properties and won't be visible in the code
 
@@ -61,16 +73,14 @@ If you encounter any issues:
 
 ## Security Features
 
-- The Todoist API token is stored securely using Google Apps Script's Properties Service
-- The token is never exposed in the code
-- The token is encrypted at rest by Google
-- Access to the token is restricted to only this script
-- The token can be updated using the `setTodoistToken` function without modifying the code
+### Todoist Token Storage
+The Todoist API token is stored using Google Apps Script's Properties Service
+
 
 ## Deployment Options
 
 ### Option 1: Web UI Deployment
-Follow the setup instructions above using the Google Apps Script web interface.
+Follow the setup instructions above using the Google Apps Script web interface by copying the code from `Code.gs` into the editor.
 
 ### Option 2: CLI Deployment (Recommended)
 You can deploy and manage this script using `clasp` (Command Line Apps Script Projects):
@@ -89,7 +99,9 @@ You can deploy and manage this script using `clasp` (Command Line Apps Script Pr
    ```bash
    clasp create --type standalone --title "Google Tasks Todoist Sync"
    ```
-   This will create a new project and update `.clasp.json` with the script ID.
+   This will create a `.clasp.json` file with your script ID. This file is specific to your deployment and is git-ignored.
+   
+   Note: Each developer should create their own Apps Script project. Do not share or commit your `.clasp.json` file.
 
 4. **Enable the Google Apps Script API**
    - Visit https://script.google.com/home/usersettings
@@ -112,7 +124,7 @@ You can deploy and manage this script using `clasp` (Command Line Apps Script Pr
 
 After deployment, you still need to:
 1. Enable the Tasks API in the Apps Script project
-2. Add your Todoist API token to `Code.gs`
+2. Add your Todoist API token using the `setMyToken` function described above
 3. Run `createTimeTrigger` once to set up the automatic sync
 
 ### Useful clasp commands

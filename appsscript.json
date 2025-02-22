@@ -1,5 +1,21 @@
 {
-  "timeZone": "America/New_York",
+  "timeZone": "Asia/Singapore",
+  "executionApi": {
+    "access": "ANYONE"
+  },
+  "oauthScopes": [
+    "https://www.googleapis.com/auth/script.deployments",
+    "https://www.googleapis.com/auth/script.projects",
+    "https://www.googleapis.com/auth/script.webapp.deploy",
+    "https://www.googleapis.com/auth/drive.metadata.readonly",
+    "https://www.googleapis.com/auth/drive.file",
+    "https://www.googleapis.com/auth/service.management",
+    "https://www.googleapis.com/auth/logging.read",
+    "https://www.googleapis.com/auth/cloud-platform",
+    "https://www.googleapis.com/auth/tasks",
+    "https://www.googleapis.com/auth/script.external_request",
+    "https://www.googleapis.com/auth/script.scriptapp"
+  ],
   "dependencies": {
     "enabledAdvancedServices": [{
       "userSymbol": "Tasks",
